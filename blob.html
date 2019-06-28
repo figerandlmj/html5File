@@ -16,7 +16,8 @@
     console.log(blob);
     var newBlob = blob.slice(0, 5, {type: 'text/plain'});
     console.log(newBlob);
-    //第一个为回调函数，第二个为图片类型，默认为 image/png，第三个为图片质量，值在 0 到 1 之间
+    
+    //canvas绘制图片
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
     var image = new Image();
@@ -24,8 +25,10 @@
     image.onload = function() {
       context.drawImage(image, 0, 0);
     };
+    //点击下载
     var btn = document.getElementById('btn');
     btn.onclick = function() {
+      //第一个为回调函数，第二个为图片类型，默认为 image/png，第三个为图片质量，值在 0 到 1 之间
       canvas.toBlob(function(blob) {
         console.log(blob);
         var url = URL.createObjectURL(blob);
