@@ -27,7 +27,6 @@
           reader = new FileReader();
       if(files && files[0]) {
         reader.onload = function(ev) {
-          console.log(ev);
           img.src = ev.target.result;
         }
         reader.readAsDataURL(files[0]);
