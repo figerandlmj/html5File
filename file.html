@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FileList对象和File对象</title>
+</head>
+<body>
+<!--  webkit响应滞慢-->
+  <input type="file" id="files" multiple accept="image/*">
+  <input type="file" id="files" multiple accept="image/gif,image/jpeg,image/jpg,image/png">
+  <script>
+    var elem = document.getElementById('files');
+    elem.onchange = function(event) {
+      console.log(event);
+      console.log(this.files);
+    }
+  </script>
+</body>
+</html>

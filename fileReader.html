@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FileReader对象</title>
+</head>
+<body>
+  <input type="file" id="files" accept="image/jpeg,image/jpg,image/png">
+  <img src="" id="preview" alt="预览">
+  <script>
+    var reader = new FileReader();
+    console.log(reader);
+    //• abort：中断读取操作。
+    //• readAsArrayBuffer：读取文件内容到 ArrayBuffer 对象中。
+    //• readAsBinaryString：将文件读取为二进制数据。
+    //• readAsDataURL：将文件读取为 data: URL 格式的字符串。
+    //• readAsText：将文件读取为文本。
+    
+    //图片上传预览
+    var elem = document.getElementById('files'),
+        img = document.getElementById('preview');
+    elem.onchange = function() {
+      var files = this.files,
+          reader = new FileReader();
+      if(files && files[0]) {
+        reader.onload = function(ev) {
+          console.log(ev);
+          img.src = ev.target.result;
+        }
+        reader.readAsDataURL(files[0]);
+      }
+    }
+  </script>
+</body>
+</html>
